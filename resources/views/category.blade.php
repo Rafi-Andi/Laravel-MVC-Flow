@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Kategori</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e3f2fd, #f8f9fa);
+            color: #333;
+            padding: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #007bff;
+            font-weight: 600;
+            margin-bottom: 25px;
+            letter-spacing: 0.5px;
+        }
+
+        .table-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 15px;
+        }
+
+        thead {
+            background: linear-gradient(90deg, #007bff, #00b4d8);
+            color: #fff;
+        }
+
+        th {
+            padding: 14px 18px;
+            text-align: left;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+        }
+
+        tbody td {
+            padding: 12px 18px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f9fbfd;
+        }
+
+        tbody tr:hover {
+            background-color: #eef6ff;
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .id-tag {
+            display: inline-block;
+            padding: 6px 12px;
+            background: #e9f3ff;
+            color: #007bff;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 0.85em;
+        }
+
+        .table-responsive::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .table-responsive::-webkit-scrollbar-thumb {
+            background-color: rgba(0, 123, 255, 0.5);
+            border-radius: 4px;
+        }
+
+        .table-responsive::-webkit-scrollbar-track {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Daftar Kategori</h1>
+
+    <div class="table-container">
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nama Kategori</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($categories as $category)
+                        <tr>
+                            <td><span class="id-tag">#{{ $category->id }}</span></td>
+                            <td>{{ $category->name }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
